@@ -1,0 +1,12 @@
+int robIter(vector<int>& money, int c, int dp1, int dp2) {
+    if (c >= money.size())
+        return dp2;
+    else {
+        dp1 = max(dp1 + money[c++], dp2);
+        return robIter(money, c, dp2, dp1);
+    }
+}
+
+int rob(vector<int>& nums) {
+    return robIter(nums, 0, 0, 0);
+}
